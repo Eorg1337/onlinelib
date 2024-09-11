@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Sevillana&display=swap');
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 5px;
+  padding: 5px 20px 5px 20px;
+  border: 1px solid rgb(131, 115, 115);
+}
+
+.main_text {
+  color: rgb(221, 203, 203);
+  font-family: 'Sevillana', cursive;
+  font-weight: 400;
+  font-size: 36px;
+  font-style: normal;
+}
+
+.favBooks {
+  background-color: rgb(221, 203, 203);
+  border: none;
+  width: 200px;
+  font-size: 18px;
+  margin: 5px;
+  padding: 5px;
+  color: rgb(99, 95, 95);
+  cursor: pointer;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.favBooks:hover {
+  background-color: rgb(147, 135, 135);
+}

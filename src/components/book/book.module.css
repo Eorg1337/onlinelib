@@ -1,0 +1,42 @@
+.book_wrapper {
+  margin: 5px;
+  padding: 7px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  border: 3px solid rgb(131, 115, 115);
+  color: white;
+  flex-basis: 30%;
+}
+
+.favorites {
+  align-self: flex-end;
+  font-size: 26px;
+  color: rgb(131, 115, 115);
+  cursor: pointer;
+}
+
+.favorites:hover {
+  transform: scale(1.3);
+}
+
+.book_cover {
+  width: 200px;
+  height: 300px;
+  object-fit: fill;
+  align-self: center;
+  border: 1px solid black;
+}
+
+.info_wrapper {
+}
+
+.name {
+}
+
+.author {
+}
+
+.year {
+}

@@ -1,0 +1,13 @@
+.filter {
+  margin: 5px;
+  padding: 5px;
+  font-size: 18px;
+  width: 343px;
+  border: none;
+  background-color: rgb(221, 203, 203);
+  transition: background-color 0.5s ease-in-out;
+}
+
+.filter:hover {
+  background-color: rgb(147, 135, 135);
+}
