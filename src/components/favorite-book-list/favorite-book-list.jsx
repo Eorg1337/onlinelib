@@ -1,10 +1,11 @@
 import React from 'react'
 import { BookCard } from '../book-card/book-card'
 import { useSelector } from 'react-redux'
+import styles from './favorite-book-list.module.css'
 const FavoriteBookList = () => {
   const favoriteBooks = useSelector((state) => state.favSlice.favorites)
   return (
-    <div>
+    <div className={styles.favs_container}>
       {favoriteBooks.map((book, index) => {
         return (
           <BookCard

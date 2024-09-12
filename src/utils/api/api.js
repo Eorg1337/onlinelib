@@ -3,7 +3,6 @@ const checkResponse = (res) => {
 }
 
 export const fetchBook = async (q) => {
-  console.log('запрос данных')
   try {
     const res = q
       ? await fetch(

@@ -14,7 +14,6 @@ import {
 const useBookList = (query) => {
   const dispatch = useDispatch()
   const { books, loading, error } = useSelector((state) => state.bookSlice)
-  const bookFilter = useSelector((state) => state.filterSlice.book)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,10 +28,8 @@ const useBookList = (query) => {
       }
     }
 
-    if (!books.length || bookFilter.length > 0) {
-      fetchData()
-    }
-  }, [query, dispatch, books.length, bookFilter])
+    fetchData()
+  }, [query, dispatch])
 
   return { books, loading, error }
 }
@@ -42,7 +39,6 @@ const BookList = () => {
   const authorFilter = useSelector((state) => state.filterSlice.author)
   const yearFilter = useSelector((state) => state.filterSlice.year)
   const { books, loading, error } = useBookList(bookFilter)
-
   const filteredBookList = useMemo(() => {
     return books?.filter((book) => {
       const matchesAuthor = authorFilter

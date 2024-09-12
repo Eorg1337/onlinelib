@@ -8,7 +8,7 @@ export const Header = () => {
 
   const handleClickedFav = useCallback(() => {
     setIsFavoriteOpen((prevState) => !prevState)
-    navigate(isFavoriteOpen ? '/favs' : '/')
+    navigate(!isFavoriteOpen ? '/favs' : '/')
   }, [isFavoriteOpen, navigate])
 
   return (
@@ -18,7 +18,7 @@ export const Header = () => {
       </div>
       <div>
         <button className={styles.favBooks} onClick={handleClickedFav}>
-          Избранные
+          {!isFavoriteOpen ? 'Избранные' : 'Главная'}
         </button>
       </div>
     </header>

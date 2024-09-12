@@ -7,7 +7,13 @@
   justify-content: start;
   border: 3px solid rgb(131, 115, 115);
   color: white;
-  flex-basis: 30.4%;
+  flex: 0 1 30.6%;
+}
+
+@media (max-width: 1100px) {
+  .book_wrapper {
+    flex: 1 1 45%;
+  }
 }
 
 .favorites {

@@ -1,7 +1,7 @@
 import React from 'react'
 import Book from '../book/book'
 import styles from './book-card.module.css'
-
+import noImage from '../../images/no-image.png'
 export const BookCard = (props) => {
   return (
     <Book
@@ -16,7 +16,11 @@ export const BookCard = (props) => {
               {isFavorite ? '★' : '☆'}
             </span>
             <img
-              src={`https://covers.openlibrary.org/b/olid/${data.cover}-M.jpg`}
+              src={
+                data.cover
+                  ? `https://covers.openlibrary.org/b/olid/${data.cover}-M.jpg`
+                  : noImage
+              }
               alt='Обложка книги'
               className={styles.book_cover}
             />
