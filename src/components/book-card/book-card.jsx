@@ -25,7 +25,10 @@ export const BookCard = (props) => {
               className={styles.book_cover}
             />
             <div className={styles.info_wrapper}>
-              <p className={styles.name}>{data.name}</p>
+              <div className={styles.top}>
+                <p className={styles.name}>{data.name}</p>
+                <button className={styles.busket}>🛒</button>
+              </div>
               <p className={styles.author}>{data.author}</p>
               <p className={styles.year}>{data.year}</p>
             </div>

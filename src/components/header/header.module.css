@@ -17,20 +17,3 @@ header {
   font-size: 36px;
   font-style: normal;
 }
-
-.favBooks {
-  background-color: rgb(221, 203, 203);
-  border: none;
-  width: 200px;
-  font-size: 18px;
-  margin: 5px;
-  padding: 5px;
-  color: rgb(99, 95, 95);
-  cursor: pointer;
-  transition: background-color 0.5s ease-in-out;
-  border-radius: 5px;
-}
-
-.favBooks:hover {
-  background-color: rgb(147, 135, 135);
-}

@@ -5,6 +5,8 @@ const Book = ({ render, ...props }) => {
   const isFavorite = useSelector((state) => state.favSlice.favorites).some(
     (item) => item.cover === props.cover
   )
+  //доделать функционал корзины
+  /*const isBusket = useSelector*/
   const dispatch = useDispatch()
   const handleFavoriteClick = (isFav) => {
     isFav ? dispatch(removeFavorite(props)) : dispatch(addFavorite(props))
