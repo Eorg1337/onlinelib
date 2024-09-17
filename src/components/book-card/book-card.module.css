@@ -21,6 +21,7 @@
   font-size: 26px;
   color: rgb(131, 115, 115);
   cursor: pointer;
+  transition: transform 0.3s;
 }
 
 .favorites:hover {
@@ -55,11 +56,28 @@
   margin: 5px;
   padding: 5px;
   cursor: pointer;
-  transition: background-color 0.5s ease-in-out;
+  transition: transform 0.3s;
   border-radius: 5px;
   align-self: end;
 }
 
+.busket_active {
+  border: none;
+  width: 40px;
+  font-size: 12px;
+  margin: 5px;
+  padding: 5px;
+  cursor: pointer;
+  transition: transform 0.3s;
+  border-radius: 5px;
+  align-self: end;
+  background-color: rgb(198, 191, 191);
+}
+
+.busket_active:hover {
+  transform: scale(1.1);
+}
+
 .busket:hover {
-  background-color: rgb(178, 176, 180);
+  transform: scale(1.1);
 }

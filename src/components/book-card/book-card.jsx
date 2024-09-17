@@ -6,12 +6,12 @@ export const BookCard = (props) => {
   return (
     <Book
       {...props}
-      render={(data, onClick, isFavorite) => {
+      render={(data, onFav, onBusket, isBusket, isFavorite) => {
         return (
           <div className={styles.book_wrapper}>
             <span
               className={styles.favorites}
-              onClick={() => onClick(isFavorite)}
+              onClick={() => onFav(isFavorite)}
             >
               {isFavorite ? '★' : '☆'}
             </span>
@@ -27,7 +27,12 @@ export const BookCard = (props) => {
             <div className={styles.info_wrapper}>
               <div className={styles.top}>
                 <p className={styles.name}>{data.name}</p>
-                <button className={styles.busket}>🛒</button>
+                <button
+                  className={isBusket ? styles.busket_active : styles.busket}
+                  onClick={() => onBusket(isBusket)}
+                >
+                  🛒
+                </button>
               </div>
               <p className={styles.author}>{data.author}</p>
               <p className={styles.year}>{data.year}</p>

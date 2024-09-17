@@ -2,13 +2,16 @@ import React, { useCallback, useState } from 'react'
 import styles from './header.module.css'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { MyButton } from '../my-button/my-button'
+import { useSelector } from 'react-redux'
 
 export const Header = () => {
   const [isFavoriteOpen, setIsFavoriteOpen] = useState(false)
   const [isBusketOpen, setIsBusketOpen] = useState(false)
   const navigate = useNavigate()
   const location = useLocation()
-  console.log(location)
+  const busketCount = useSelector(
+    (state) => state.busketSlice.pickedBooks
+  ).length
   const handleClickedBtn = useCallback(
     (path) => {
       if (path === '/favs' || location.pathname === '/favs') {
@@ -33,9 +36,11 @@ export const Header = () => {
           onClick={() => handleClickedBtn(isFavoriteOpen ? '/' : '/favs')}
         />
         <MyButton
-          text={!isBusketOpen ? 'Корзина' : 'Главная'}
+          text={!isBusketOpen ? 'Корзина ' : 'Главная'}
           onClick={() => handleClickedBtn(isBusketOpen ? '/' : '/busket')}
-        />
+        >
+          <span className={styles.busket_count}>{busketCount}</span>
+        </MyButton>
       </div>
     </header>
   )
