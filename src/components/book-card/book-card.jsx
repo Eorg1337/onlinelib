@@ -6,7 +6,7 @@ export const BookCard = (props) => {
   return (
     <Book
       {...props}
-      render={(data, onFav, onBusket, isBusket, isFavorite) => {
+      render={(data, price, onFav, onBusket, isBusket, isFavorite) => {
         return (
           <div className={styles.book_wrapper}>
             <span
@@ -34,7 +34,10 @@ export const BookCard = (props) => {
                   🛒
                 </button>
               </div>
-              <p className={styles.author}>{data.author}</p>
+              <div className={styles.top}>
+                <p className={styles.author}>{data.author}</p>
+                <p>{price} RUB</p>
+              </div>
               <p className={styles.year}>{data.year}</p>
             </div>
           </div>

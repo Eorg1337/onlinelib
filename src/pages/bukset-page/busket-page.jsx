@@ -1,9 +1,9 @@
 import React from 'react'
-import { Busket } from '../../components/busket/busket'
+import { BusketList } from '../../components/busket-list/busket-list'
 export const BusketPage = () => {
   return (
     <>
-      <Busket />
+      <BusketList />
     </>
   )
 }

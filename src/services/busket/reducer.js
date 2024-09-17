@@ -21,13 +21,11 @@ const busketSlice = createSlice({
       return { pickedBooks }
     },
     removeBook(state, action) {
-      const book = action.payload
+      const cover = action.payload
       if (state.pickedBooks.count > 1) {
         state.pickedBooks.count--
       } else {
-        state.pickedBooks = state.pickedBooks.filter(
-          (b) => b.cover !== book.cover
-        )
+        state.pickedBooks = state.pickedBooks.filter((b) => b.cover !== cover)
       }
     }
   }
