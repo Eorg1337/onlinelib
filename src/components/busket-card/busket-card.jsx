@@ -4,11 +4,10 @@ import noImage from '../../images/no-image.png'
 import { MyButton } from '../my-button/my-button'
 import { useDispatch } from 'react-redux'
 import { removeBook } from '../../services/busket/reducer'
-export const BusketCard = ({ cover, name, author, year, price }) => {
+export const BusketCard = ({ uniq_key, cover, name, author, year, price }) => {
   const dispatch = useDispatch()
-  const handleDeleteBook = (cover) => {
-    console.log(cover)
-    dispatch(removeBook(cover))
+  const handleDeleteBook = (uniq_key) => {
+    dispatch(removeBook(uniq_key))
   }
 
   return (
@@ -30,7 +29,7 @@ export const BusketCard = ({ cover, name, author, year, price }) => {
           <MyButton
             text='Удалить'
             customClass='small_btn'
-            onClick={() => handleDeleteBook(cover)}
+            onClick={() => handleDeleteBook(uniq_key)}
           />
         </div>
       </div>

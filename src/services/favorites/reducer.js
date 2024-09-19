@@ -10,14 +10,14 @@ const favSlice = createSlice({
   reducers: {
     addFavorite(state, action) {
       const book = action.payload
-      if (!state.favorites.find((fav) => fav.cover === book.cover)) {
+      if (!state.favorites.find((fav) => fav.uniq_key === book.uniq_key)) {
         state.favorites.push(book)
       }
     },
     removeFavorite(state, action) {
       const book = action.payload
       state.favorites = state.favorites.filter(
-        (fav) => fav.cover !== book.cover
+        (fav) => fav.uniq_key !== book.uniq_key
       )
     }
   }

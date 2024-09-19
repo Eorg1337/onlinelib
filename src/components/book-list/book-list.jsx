@@ -52,7 +52,6 @@ const BookList = () => {
       return matchesAuthor && matchesYear
     })
   }, [books, authorFilter, yearFilter])
-
   return (
     <>
       <div className={styles.filters}>
@@ -84,6 +83,13 @@ const BookList = () => {
                   }
                   year={book.first_publish_year || 'Unknown'}
                   cover={book.cover_edition_key}
+                  price={Math.floor(book.first_publish_year * 0.5)}
+                  uniq_key={
+                    book.cover_edition_key
+                      ? book.cover_edition_key
+                      : Math.floor(book.first_publish_year * 0.5) *
+                        book.title.length
+                  }
                 />
               )
             })}

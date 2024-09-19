@@ -10,12 +10,18 @@ const FavoriteBookList = () => {
         return (
           <BookCard
             key={book.cover ? book.cover : index}
+            uniq_key={
+              book.cover
+                ? book.cover
+                : Math.floor(book.year * 0.5) * book.name.length
+            }
             name={book.name}
             author={book.author}
             year={book.year}
             cover={book.cover}
             handleAddFavoriteBook={book.handleAddFavoriteBook}
             isFav={book.isFav}
+            price={book.price}
           />
         )
       })}

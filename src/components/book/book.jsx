@@ -3,13 +3,14 @@ import { useSelector, useDispatch } from 'react-redux'
 import { addFavorite, removeFavorite } from '../../services/favorites/reducer'
 import { addBook, removeBook } from '../../services/busket/reducer'
 const Book = ({ render, ...props }) => {
-  const price = Math.floor(props.year * 0.5)
   const isFavorite = useSelector((state) => state.favSlice.favorites).some(
-    (item) => item.cover === props.cover
+    (item) => {
+      return item.uniq_key === props.uniq_key
+    }
   )
 
   const isBusket = useSelector((state) => state.busketSlice.pickedBooks).some(
-    (item) => item.cover === props.cover
+    (item) => item.uniq_key === props.uniq_key
   )
   const dispatch = useDispatch()
   const handleFavoriteClick = (isFav) => {
@@ -18,14 +19,13 @@ const Book = ({ render, ...props }) => {
 
   const handleBusketClick = (isBusket) => {
     isBusket
-      ? dispatch(removeBook(props.cover))
-      : dispatch(addBook({ ...props, price }))
+      ? dispatch(removeBook(props.uniq_key))
+      : dispatch(addBook({ ...props }))
   }
   return (
     <>
       {render(
         props,
-        price,
         handleFavoriteClick,
         handleBusketClick,
         isBusket,

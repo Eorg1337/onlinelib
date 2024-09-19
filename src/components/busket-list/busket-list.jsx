@@ -12,6 +12,11 @@ export const BusketList = () => {
           return (
             <BusketCard
               key={book.cover ? book.cover : index}
+              uniq_key={
+                book.cover
+                  ? book.cover
+                  : Math.floor(book.year * 0.5) * book.name.length
+              }
               cover={book.cover}
               name={book.name}
               author={book.author || 'Unknown'}

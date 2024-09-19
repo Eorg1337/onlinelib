@@ -11,7 +11,7 @@ const busketSlice = createSlice({
     addBook(state, action) {
       const book = action.payload
       let pickedBooks = []
-      if (!state.pickedBooks.find((b) => b.cover === book.cover)) {
+      if (!state.pickedBooks.find((b) => b.uniq_key === book.uniq_key)) {
         let count = 1
         pickedBooks = [...state.pickedBooks]
         pickedBooks.push({ ...book, count })
@@ -21,11 +21,13 @@ const busketSlice = createSlice({
       return { pickedBooks }
     },
     removeBook(state, action) {
-      const cover = action.payload
+      const uniq_key = action.payload
       if (state.pickedBooks.count > 1) {
         state.pickedBooks.count--
       } else {
-        state.pickedBooks = state.pickedBooks.filter((b) => b.cover !== cover)
+        state.pickedBooks = state.pickedBooks.filter((b) => {
+          return b.uniq_key !== uniq_key
+        })
       }
     }
   }
