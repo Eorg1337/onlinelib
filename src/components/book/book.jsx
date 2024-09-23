@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { addFavorite, removeFavorite } from '../../services/favorites/reducer'
 import { addBook, removeBook } from '../../services/busket/reducer'
 const Book = ({ render, ...props }) => {
+  // TODO
+  // Все селекторы поместить в константы
   const isFavorite = useSelector((state) => state.favSlice.favorites).some(
     (item) => {
       return item.uniq_key === props.uniq_key

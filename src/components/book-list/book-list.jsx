@@ -10,7 +10,7 @@ import {
   fetchBooksSuccess,
   fetchBooksFailure
 } from '../../services/books/reducer'
-
+// TODO вынести в отдельную директорию с утилитами
 const useBookList = (query) => {
   const dispatch = useDispatch()
   const { books, loading, error } = useSelector((state) => state.bookSlice)

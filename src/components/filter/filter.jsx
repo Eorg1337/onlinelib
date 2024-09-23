@@ -18,7 +18,7 @@ const MyFilter = ({ type, name, placeholder }) => {
   })
 
   const [input, setInput] = useState(inputValue)
-
+  // TODO реализовать свою версию функции debbonce (иногда просят на собесах написать)
   const debouncedDispatch = useCallback(
     debounce((value) => {
       if (name === 'book') dispatch(setBookFilter(value))

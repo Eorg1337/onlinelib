@@ -12,6 +12,8 @@ export const Header = () => {
   const busketCount = useSelector(
     (state) => state.busketSlice.pickedBooks
   ).length
+  // TODO
+  // В данном случае нет смысла использовать useCallback - он нужен для функций которые передаются в компоненты, чтобы они не перерисовывались
   const handleClickedBtn = useCallback(
     (path) => {
       if (path === '/favs' || location.pathname === '/favs') {
