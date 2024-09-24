@@ -2,8 +2,9 @@ import React from 'react'
 import { BusketCard } from '../busket-card/busket-card'
 import { useSelector } from 'react-redux'
 import styles from './busket.module.css'
+import { selectPickedBooks } from '../../utils/constants/constants'
 export const BusketList = () => {
-  const busketBooks = useSelector((state) => state.busketSlice.pickedBooks)
+  const busketBooks = useSelector(selectPickedBooks)
   return (
     <>
       <h1 className={styles.picked_list}>Список выбранных товаров:</h1>

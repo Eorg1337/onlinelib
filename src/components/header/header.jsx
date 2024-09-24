@@ -14,18 +14,15 @@ export const Header = () => {
   ).length
   // TODO
   // В данном случае нет смысла использовать useCallback - он нужен для функций которые передаются в компоненты, чтобы они не перерисовывались
-  const handleClickedBtn = useCallback(
-    (path) => {
-      if (path === '/favs' || location.pathname === '/favs') {
-        setIsFavoriteOpen((prevState) => !prevState)
-      }
-      if (path === '/busket' || location.pathname === '/busket') {
-        setIsBusketOpen((prevState) => !prevState)
-      }
-      navigate(path)
-    },
-    [isBusketOpen, isFavoriteOpen, navigate]
-  )
+  const handleClickedBtn = (path) => {
+    if (path === '/favs' || location.pathname === '/favs') {
+      setIsFavoriteOpen((prevState) => !prevState)
+    }
+    if (path === '/busket' || location.pathname === '/busket') {
+      setIsBusketOpen((prevState) => !prevState)
+    }
+    navigate(path)
+  }
 
   return (
     <header>

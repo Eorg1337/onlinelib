@@ -1,43 +1,21 @@
-import React, { useEffect, useMemo } from 'react'
+import React, { useMemo } from 'react'
 import { BookCard } from '../book-card/book-card'
-import { fetchBook } from '../../utils/api/api'
 import styles from './book-list.module.css'
 import Loader from '../loader/loader'
 import MyFilter from '../filter/filter'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import {
-  fetchBooksStart,
-  fetchBooksSuccess,
-  fetchBooksFailure
-} from '../../services/books/reducer'
+  selectBookFilter,
+  selectAuthorFilter,
+  selectYearFilter
+} from '../../utils/constants/constants'
+import { useBookList } from '../../utils/hooks/use-book-list'
 // TODO вынести в отдельную директорию с утилитами
-const useBookList = (query) => {
-  const dispatch = useDispatch()
-  const { books, loading, error } = useSelector((state) => state.bookSlice)
-
-  useEffect(() => {
-    const fetchData = async () => {
-      dispatch(fetchBooksStart())
-      try {
-        const response = await fetchBook(query)
-        dispatch(
-          fetchBooksSuccess(response.works ? response.works : response.docs)
-        )
-      } catch (error) {
-        dispatch(fetchBooksFailure(error.toString()))
-      }
-    }
-
-    fetchData()
-  }, [query, dispatch])
-
-  return { books, loading, error }
-}
 
 const BookList = () => {
-  const bookFilter = useSelector((state) => state.filterSlice.book)
-  const authorFilter = useSelector((state) => state.filterSlice.author)
-  const yearFilter = useSelector((state) => state.filterSlice.year)
+  const bookFilter = useSelector(selectBookFilter)
+  const authorFilter = useSelector(selectAuthorFilter)
+  const yearFilter = useSelector(selectYearFilter)
   const { books, loading, error } = useBookList(bookFilter)
   const filteredBookList = useMemo(() => {
     return books?.filter((book) => {

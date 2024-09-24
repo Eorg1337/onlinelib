@@ -7,7 +7,6 @@ import {
   setYearFilter
 } from '../../services/filter/reducer'
 import { debounce } from 'lodash-es'
-
 const MyFilter = ({ type, name, placeholder }) => {
   const dispatch = useDispatch()
   const inputValue = useSelector((state) => {
