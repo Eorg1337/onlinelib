@@ -10,15 +10,16 @@ import {
   selectYearFilter
 } from '../../utils/constants/constants'
 import { useBookList } from '../../utils/hooks/use-book-list'
+import { BookPropsInit } from '../../utils/interfaces/interfaces'
 // TODO вынести в отдельную директорию с утилитами
 
-const BookList = () => {
+const BookList: React.FC = () => {
   const bookFilter = useSelector(selectBookFilter)
   const authorFilter = useSelector(selectAuthorFilter)
   const yearFilter = useSelector(selectYearFilter)
   const { books, loading, error } = useBookList(bookFilter)
   const filteredBookList = useMemo(() => {
-    return books?.filter((book) => {
+    return books?.filter((book: BookPropsInit) => {
       const matchesAuthor = authorFilter
         ? book.author_name?.[0]
             .toLowerCase()
@@ -51,7 +52,7 @@ const BookList = () => {
       ) : (
         <div className={styles.book_list}>
           {filteredBookList?.length > 0 &&
-            filteredBookList.map((book, index) => {
+            filteredBookList.map((book: BookPropsInit, index: number) => {
               return (
                 <BookCard
                   key={book.cover_edition_key ? book.cover_edition_key : index}
@@ -59,7 +60,7 @@ const BookList = () => {
                   author={
                     book.author_name?.[0] || book.authors?.[0].name || 'Unknown'
                   }
-                  year={book.first_publish_year || 'Unknown'}
+                  year={book.first_publish_year}
                   cover={book.cover_edition_key}
                   price={Math.floor(book.first_publish_year * 0.5)}
                   uniq_key={

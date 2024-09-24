@@ -3,11 +3,12 @@ import { BookCard } from '../book-card/book-card'
 import { useSelector } from 'react-redux'
 import styles from './favorite-book-list.module.css'
 import { selectFavorites } from '../../utils/constants/constants'
+import { BookProps } from '../../utils/interfaces/interfaces'
 const FavoriteBookList = () => {
   const favoriteBooks = useSelector(selectFavorites)
   return (
     <div className={styles.favs_container}>
-      {favoriteBooks.map((book, index) => {
+      {favoriteBooks.map((book: BookProps, index: number) => {
         return (
           <BookCard
             key={book.cover ? book.cover : index}

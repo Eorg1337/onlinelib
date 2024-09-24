@@ -6,22 +6,24 @@ import {
   selectPickedBooks,
   selectFavorites
 } from '../../utils/constants/constants'
-const Book = ({ render, ...props }) => {
+import { CombinedProps, BookProps } from '../../utils/interfaces/interfaces'
+
+const Book: React.FC<CombinedProps> = ({ render, ...props }) => {
   // TODO
   // Все селекторы поместить в константы - complete
-  const isFavorite = useSelector(selectFavorites).some((item) => {
+  const isFavorite = useSelector(selectFavorites).some((item: BookProps) => {
     return item.uniq_key === props.uniq_key
   })
 
   const isBusket = useSelector(selectPickedBooks).some(
-    (item) => item.uniq_key === props.uniq_key
+    (item: BookProps) => item.uniq_key === props.uniq_key
   )
   const dispatch = useDispatch()
-  const handleFavoriteClick = (isFav) => {
+  const handleFavoriteClick = (isFav: boolean) => {
     isFav ? dispatch(removeFavorite(props)) : dispatch(addFavorite(props))
   }
 
-  const handleBusketClick = (isBusket) => {
+  const handleBusketClick = (isBusket: boolean) => {
     isBusket
       ? dispatch(removeBook(props.uniq_key))
       : dispatch(addBook({ ...props }))

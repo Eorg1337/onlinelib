@@ -1,8 +1,9 @@
 import React from 'react'
 import Book from '../book/book'
+import { BookProps } from '../../utils/interfaces/interfaces'
 import styles from './book-card.module.css'
 import noImage from '../../images/no-image.png'
-export const BookCard = (props) => {
+export const BookCard: React.FC<BookProps> = (props) => {
   return (
     <Book
       {...props}

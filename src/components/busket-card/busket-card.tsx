@@ -4,9 +4,17 @@ import noImage from '../../images/no-image.png'
 import { MyButton } from '../my-button/my-button'
 import { useDispatch } from 'react-redux'
 import { removeBook } from '../../services/busket/reducer'
-export const BusketCard = ({ uniq_key, cover, name, author, year, price }) => {
+import { BookProps } from '../../utils/interfaces/interfaces'
+export const BusketCard: React.FC<BookProps> = ({
+  uniq_key,
+  cover,
+  name,
+  author,
+  year,
+  price
+}) => {
   const dispatch = useDispatch()
-  const handleDeleteBook = (uniq_key) => {
+  const handleDeleteBook = (uniq_key: string | number) => {
     dispatch(removeBook(uniq_key))
   }
 

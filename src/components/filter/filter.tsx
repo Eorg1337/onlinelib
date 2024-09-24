@@ -7,9 +7,10 @@ import {
   setYearFilter
 } from '../../services/filter/reducer'
 import { debounce } from '../../utils/funcs/debounce'
-const MyFilter = ({ type, name, placeholder }) => {
+import { FilterProps } from '../../utils/interfaces/interfaces'
+const MyFilter: React.FC<FilterProps> = ({ type, name, placeholder }) => {
   const dispatch = useDispatch()
-  const inputValue = useSelector((state) => {
+  const inputValue = useSelector((state: any) => {
     if (name === 'book') return state.filterSlice.book
     if (name === 'author') return state.filterSlice.author
     if (name === 'year') return state.filterSlice.year
@@ -19,7 +20,7 @@ const MyFilter = ({ type, name, placeholder }) => {
   const [input, setInput] = useState(inputValue)
   // TODO реализовать свою версию функции debbonce (иногда просят на собесах написать) - complete
   const debouncedDispatch = useCallback(
-    debounce((value) => {
+    debounce((value: string) => {
       if (name === 'book') dispatch(setBookFilter(value))
       else if (name === 'author') dispatch(setAuthorFilter(value))
       else if (name === 'year') dispatch(setYearFilter(value))
@@ -27,7 +28,7 @@ const MyFilter = ({ type, name, placeholder }) => {
     [dispatch, name]
   )
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     const value = e.target.value
     setInput(value)
     debouncedDispatch(value)

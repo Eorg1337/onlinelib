@@ -3,13 +3,14 @@ import { BusketCard } from '../busket-card/busket-card'
 import { useSelector } from 'react-redux'
 import styles from './busket.module.css'
 import { selectPickedBooks } from '../../utils/constants/constants'
+import { BookProps } from '../../utils/interfaces/interfaces'
 export const BusketList = () => {
   const busketBooks = useSelector(selectPickedBooks)
   return (
     <>
       <h1 className={styles.picked_list}>Список выбранных товаров:</h1>
       {busketBooks &&
-        busketBooks.map((book, index) => {
+        busketBooks.map((book: BookProps, index: number) => {
           return (
             <BusketCard
               key={book.cover ? book.cover : index}
@@ -21,7 +22,7 @@ export const BusketList = () => {
               cover={book.cover}
               name={book.name}
               author={book.author || 'Unknown'}
-              year={book.year || 'Unknown'}
+              year={book.year}
               price={book.price}
             />
           )

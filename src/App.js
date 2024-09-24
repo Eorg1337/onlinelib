@@ -6,16 +6,22 @@ import { FavoritePage } from './pages/favorite-page/favorite-page'
 import { Header } from './components/header/header'
 import { NotFoundPage } from './pages/not-found-page/not-found-page'
 import { BusketPage } from './pages/bukset-page/busket-page'
+import {
+  MAIN_PATH,
+  FAV_PATH,
+  BUSKET_PATH,
+  NOT_FOUND_PATH
+} from './utils/constants/constants'
 function App() {
   return (
     <>
       <Header />
       <Routes>
-        // TODO вынести строки в константы
-        <Route path='/' element={<MainPage />} />
-        <Route path='favs' element={<FavoritePage />} />
-        <Route path='*' element={<NotFoundPage />} />
-        <Route path='busket' element={<BusketPage />} />
+        // TODO вынести строки в константы - complete
+        <Route path={MAIN_PATH} element={<MainPage />} />
+        <Route path={FAV_PATH} element={<FavoritePage />} />
+        <Route path={NOT_FOUND_PATH} element={<NotFoundPage />} />
+        <Route path={BUSKET_PATH} element={<BusketPage />} />
       </Routes>
     </>
   )

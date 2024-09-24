@@ -1,6 +1,12 @@
 import React from 'react'
 import styles from './my-button.module.css'
-export const MyButton = ({ text, onClick, children, customClass }) => {
+import { BtnProps } from '../../utils/interfaces/interfaces'
+export const MyButton: React.FC<BtnProps> = ({
+  text,
+  onClick,
+  children,
+  customClass
+}) => {
   return (
     <>
       <button
