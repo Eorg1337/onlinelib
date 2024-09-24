@@ -8,7 +8,7 @@ import {
 } from '../../utils/constants/constants'
 const Book = ({ render, ...props }) => {
   // TODO
-  // Все селекторы поместить в константы
+  // Все селекторы поместить в константы - complete
   const isFavorite = useSelector(selectFavorites).some((item) => {
     return item.uniq_key === props.uniq_key
   })

@@ -6,7 +6,7 @@ import {
   setAuthorFilter,
   setYearFilter
 } from '../../services/filter/reducer'
-import { debounce } from 'lodash-es'
+import { debounce } from '../../utils/funcs/debounce'
 const MyFilter = ({ type, name, placeholder }) => {
   const dispatch = useDispatch()
   const inputValue = useSelector((state) => {
@@ -17,7 +17,7 @@ const MyFilter = ({ type, name, placeholder }) => {
   })
 
   const [input, setInput] = useState(inputValue)
-  // TODO реализовать свою версию функции debbonce (иногда просят на собесах написать)
+  // TODO реализовать свою версию функции debbonce (иногда просят на собесах написать) - complete
   const debouncedDispatch = useCallback(
     debounce((value) => {
       if (name === 'book') dispatch(setBookFilter(value))
