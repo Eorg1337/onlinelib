@@ -3,7 +3,7 @@ import { BookCard } from '../book-card/book-card'
 import styles from './book-list.module.css'
 import Loader from '../loader/loader'
 import MyFilter from '../filter/filter'
-import { useSelector } from 'react-redux'
+import { useSelector } from '../../services/store'
 import {
   selectBookFilter,
   selectAuthorFilter,

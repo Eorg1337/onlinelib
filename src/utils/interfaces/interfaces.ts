@@ -20,6 +20,7 @@ export interface BookProps {
   uniq_key: string | number
   handleAddFavoriteBook?: () => void
   isFav?: boolean
+  count?: number
 }
 
 export type CombinedProps = BookProps & {

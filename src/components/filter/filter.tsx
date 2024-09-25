@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react'
 import styles from './filter.module.css'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from '../../services/store'
 import {
   setBookFilter,
   setAuthorFilter,
@@ -10,7 +10,7 @@ import { debounce } from '../../utils/funcs/debounce'
 import { FilterProps } from '../../utils/interfaces/interfaces'
 const MyFilter: React.FC<FilterProps> = ({ type, name, placeholder }) => {
   const dispatch = useDispatch()
-  const inputValue = useSelector((state: any) => {
+  const inputValue = useSelector((state) => {
     if (name === 'book') return state.filterSlice.book
     if (name === 'author') return state.filterSlice.author
     if (name === 'year') return state.filterSlice.year
@@ -28,7 +28,7 @@ const MyFilter: React.FC<FilterProps> = ({ type, name, placeholder }) => {
     [dispatch, name]
   )
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
     setInput(value)
     debouncedDispatch(value)

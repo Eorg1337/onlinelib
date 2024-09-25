@@ -1,5 +1,5 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from '../../services/store'
 import { addFavorite, removeFavorite } from '../../services/favorites/reducer'
 import { addBook, removeBook } from '../../services/busket/reducer'
 import {

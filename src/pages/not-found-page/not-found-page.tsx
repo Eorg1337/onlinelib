@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './not-found-page.module.css'
 import { useNavigate } from 'react-router-dom'
-export const NotFoundPage = () => {
+export const NotFoundPage: React.FC = () => {
   const navigate = useNavigate()
   const handleBackToMain = () => {
     navigate('/')

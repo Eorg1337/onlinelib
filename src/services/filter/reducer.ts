@@ -1,6 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialState = {
+interface InitialState {
+  book: string
+  author: string
+  year: string
+}
+
+const initialState: InitialState = {
   book: '',
   author: '',
   year: ''

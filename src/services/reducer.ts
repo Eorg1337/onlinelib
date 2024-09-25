@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import favSlice from '../services/favorites/reducer'
-import filterSlice from '../services/filter/reducer'
-import bookSlice from '../services/books/reducer'
-import busketSlice from '../services/busket/reducer'
+import favSlice from './favorites/reducer'
+import filterSlice from './filter/reducer'
+import bookSlice from './books/reducer'
+import busketSlice from './busket/reducer'
 const rootReducer = combineReducers({
   bookSlice: bookSlice,
   favSlice: favSlice,

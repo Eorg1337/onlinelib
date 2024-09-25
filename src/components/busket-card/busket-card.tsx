@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './busket-card.module.css'
 import noImage from '../../images/no-image.png'
 import { MyButton } from '../my-button/my-button'
-import { useDispatch } from 'react-redux'
+import { useDispatch } from '../../services/store'
 import { removeBook } from '../../services/busket/reducer'
 import { BookProps } from '../../utils/interfaces/interfaces'
 export const BusketCard: React.FC<BookProps> = ({

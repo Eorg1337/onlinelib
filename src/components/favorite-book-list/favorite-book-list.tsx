@@ -1,6 +1,6 @@
 import React from 'react'
 import { BookCard } from '../book-card/book-card'
-import { useSelector } from 'react-redux'
+import { useSelector } from '../../services/store'
 import styles from './favorite-book-list.module.css'
 import { selectFavorites } from '../../utils/constants/constants'
 import { BookProps } from '../../utils/interfaces/interfaces'

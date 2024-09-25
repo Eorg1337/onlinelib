@@ -1,6 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { BookPropsInit } from '../../utils/interfaces/interfaces'
 
-const initialState = {
+interface InitialState {
+  books: BookPropsInit[]
+  loading: boolean
+  error: string
+}
+
+const initialState: InitialState = {
   books: [],
   loading: false,
   error: ''

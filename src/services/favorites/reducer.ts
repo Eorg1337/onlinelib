@@ -1,6 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { BookProps } from '../../utils/interfaces/interfaces'
 
-const initialState = {
+interface InitialState {
+  favorites: BookProps[]
+}
+
+const initialState: InitialState = {
   favorites: []
 }
 

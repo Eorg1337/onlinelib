@@ -1,8 +1,8 @@
-import React, { useCallback, useState } from 'react'
+import React, { useState } from 'react'
 import styles from './header.module.css'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { MyButton } from '../my-button/my-button'
-import { useSelector } from 'react-redux'
+import { useSelector } from '../../services/store'
 
 export const Header = () => {
   const [isFavoriteOpen, setIsFavoriteOpen] = useState(false)
@@ -10,7 +10,7 @@ export const Header = () => {
   const navigate = useNavigate()
   const location = useLocation()
   const busketCount = useSelector(
-    (state: any) => state.busketSlice.pickedBooks
+    (state) => state.busketSlice.pickedBooks
   ).length
   // TODO
   // В данном случае нет смысла использовать useCallback - он нужен для функций которые передаются в компоненты, чтобы они не перерисовывались
