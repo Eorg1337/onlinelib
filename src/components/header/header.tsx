@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styles from './header.module.css'
+import * as styles from './header.module.css'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { MyButton } from '../my-button/my-button'
 import { useSelector } from '../../services/store'
@@ -26,7 +26,7 @@ export const Header = () => {
 
   return (
     <header>
-      <div className={styles.maintext_container}>
+      <div>
         <h1 className={styles.main_text}>Online Library</h1>
       </div>
       <div>

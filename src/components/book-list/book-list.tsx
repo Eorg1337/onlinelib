@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
 import { BookCard } from '../book-card/book-card'
-import styles from './book-list.module.css'
+import * as styles from './book-list.module.css'
 import Loader from '../loader/loader'
 import MyFilter from '../filter/filter'
 import { useSelector } from '../../services/store'
@@ -46,7 +46,7 @@ const BookList: React.FC = () => {
         />
         <MyFilter type={'text'} name={'year'} placeholder={'Введите год...'} />
       </div>
-      {error && <div className={styles.error}>Ошибка загрузки данных...</div>}
+      {error && <div>Ошибка загрузки данных...</div>}
       {loading ? (
         <Loader />
       ) : (

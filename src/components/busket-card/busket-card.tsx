@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './busket-card.module.css'
+import * as styles from './busket-card.module.css'
 import noImage from '../../images/no-image.png'
 import { MyButton } from '../my-button/my-button'
 import { useDispatch } from '../../services/store'
@@ -31,7 +31,7 @@ export const BusketCard: React.FC<BookProps> = ({
           className={styles.cover}
         />
         <div className={styles.text_info}>
-          <h2 className={styles.name}>{name}</h2>
+          <h2>{name}</h2>
           <p className={styles.author}>{author}</p>
           <p className={styles.year}>{year}</p>
           <MyButton

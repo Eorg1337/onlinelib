@@ -1,7 +1,7 @@
 import React from 'react'
 import { BusketCard } from '../busket-card/busket-card'
 import { useSelector } from '../../services/store'
-import styles from './busket.module.css'
+import * as styles from './busket.module.css'
 import { selectPickedBooks } from '../../utils/constants/constants'
 import { BookProps } from '../../utils/interfaces/interfaces'
 export const BusketList = () => {

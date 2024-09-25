@@ -1,7 +1,7 @@
 import React from 'react'
 import Book from '../book/book'
 import { BookProps } from '../../utils/interfaces/interfaces'
-import styles from './book-card.module.css'
+import * as styles from './book-card.module.css'
 import noImage from '../../images/no-image.png'
 export const BookCard: React.FC<BookProps> = (props) => {
   return (
@@ -27,7 +27,7 @@ export const BookCard: React.FC<BookProps> = (props) => {
             />
             <div className={styles.info_wrapper}>
               <div className={styles.top}>
-                <p className={styles.name}>{data.name}</p>
+                <p>{data.name}</p>
                 <button
                   className={isBusket ? styles.busket_active : styles.busket}
                   onClick={() => onBusket(isBusket)}
@@ -36,10 +36,10 @@ export const BookCard: React.FC<BookProps> = (props) => {
                 </button>
               </div>
               <div className={styles.top}>
-                <p className={styles.author}>{data.author}</p>
+                <p>{data.author}</p>
                 <p>{data.price} RUB</p>
               </div>
-              <p className={styles.year}>{data.year}</p>
+              <p>{data.year}</p>
             </div>
           </div>
         )

@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react'
-import styles from './filter.module.css'
+import * as styles from './filter.module.css'
 import { useSelector, useDispatch } from '../../services/store'
 import {
   setBookFilter,

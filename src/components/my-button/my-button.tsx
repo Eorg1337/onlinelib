@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './my-button.module.css'
+import * as styles from './my-button.module.css'
 import { BtnProps } from '../../utils/interfaces/interfaces'
 export const MyButton: React.FC<BtnProps> = ({
   text,
