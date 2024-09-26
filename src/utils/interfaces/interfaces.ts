@@ -28,6 +28,7 @@ export type CombinedProps = BookProps & {
     data: BookProps,
     onFav: (isFav: boolean) => void,
     onBusket: (isBusket: boolean) => void,
+    onActive: () => void,
     isBusket: boolean,
     isFavorite: boolean
   ) => JSX.Element

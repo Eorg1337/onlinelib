@@ -7,10 +7,12 @@ import {
   selectFavorites
 } from '../../utils/constants/constants'
 import { CombinedProps, BookProps } from '../../utils/interfaces/interfaces'
+import { fetchAddBookActive } from '../../services/books/reducer'
 
 const Book: React.FC<CombinedProps> = ({ render, ...props }) => {
   // TODO
   // Все селекторы поместить в константы - complete
+
   const isFavorite = useSelector(selectFavorites).some((item: BookProps) => {
     return item.uniq_key === props.uniq_key
   })
@@ -28,12 +30,17 @@ const Book: React.FC<CombinedProps> = ({ render, ...props }) => {
       ? dispatch(removeBook(props.uniq_key))
       : dispatch(addBook({ ...props }))
   }
+
+  const handleActiveBook = () => {
+    dispatch(fetchAddBookActive(props.uniq_key))
+  }
   return (
     <>
       {render(
         props,
         handleFavoriteClick,
         handleBusketClick,
+        handleActiveBook,
         isBusket,
         isFavorite
       )}

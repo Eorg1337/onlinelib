@@ -31,6 +31,7 @@ const BookList: React.FC = () => {
       return matchesAuthor && matchesYear
     })
   }, [books, authorFilter, yearFilter])
+
   return (
     <>
       <div className={styles.filters}>

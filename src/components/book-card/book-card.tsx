@@ -7,7 +7,7 @@ export const BookCard: React.FC<BookProps> = (props) => {
   return (
     <Book
       {...props}
-      render={(data, onFav, onBusket, isBusket, isFavorite) => {
+      render={(data, onFav, onBusket, onActive, isBusket, isFavorite) => {
         return (
           <div className={styles.book_wrapper}>
             <span
@@ -24,6 +24,7 @@ export const BookCard: React.FC<BookProps> = (props) => {
               }
               alt='Обложка книги'
               className={styles.book_cover}
+              onClick={onActive}
             />
             <div className={styles.info_wrapper}>
               <div className={styles.top}>

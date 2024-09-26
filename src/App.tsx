@@ -1,16 +1,18 @@
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
-import { MainPage } from './pages/main-page/main-page'
-import { FavoritePage } from './pages/favorite-page/favorite-page'
+import { MainPage } from './pages/main'
+import { FavoritePage } from './pages/favorite'
 import { Header } from './components/header/header'
-import { NotFoundPage } from './pages/not-found-page/not-found-page'
-import { BusketPage } from './pages/bukset-page/busket-page'
+import { NotFoundPage } from './pages/not-found'
+import { BusketPage } from './pages/bukset'
 import {
   MAIN_PATH,
   FAV_PATH,
   BUSKET_PATH,
-  NOT_FOUND_PATH
+  NOT_FOUND_PATH,
+  BOOK_DETAILS
 } from './utils/constants/constants'
+import { BookPage } from './pages/book'
 function App() {
   return (
     <>
@@ -21,6 +23,7 @@ function App() {
         <Route path={FAV_PATH} element={<FavoritePage />} />
         <Route path={NOT_FOUND_PATH} element={<NotFoundPage />} />
         <Route path={BUSKET_PATH} element={<BusketPage />} />
+        <Route path={BOOK_DETAILS} element={<BookPage />} />
       </Routes>
     </>
   )

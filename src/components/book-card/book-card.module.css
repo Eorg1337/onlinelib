@@ -41,6 +41,7 @@
   object-fit: fill;
   align-self: center;
   border: 1px solid black;
+  cursor: pointer;
 }
 
 .info_wrapper {
