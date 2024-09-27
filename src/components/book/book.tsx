@@ -7,12 +7,16 @@ import {
   selectFavorites
 } from '../../utils/constants/constants'
 import { CombinedProps, BookProps } from '../../utils/interfaces/interfaces'
-import { fetchAddBookActive } from '../../services/books/reducer'
-
+import {
+  fetchAddBookActive,
+  setCurrentLocation
+} from '../../services/books/reducer'
+import { useLocation, useNavigate } from 'react-router-dom'
 const Book: React.FC<CombinedProps> = ({ render, ...props }) => {
   // TODO
   // Все селекторы поместить в константы - complete
-
+  const navigate = useNavigate()
+  const location = useLocation()
   const isFavorite = useSelector(selectFavorites).some((item: BookProps) => {
     return item.uniq_key === props.uniq_key
   })
@@ -33,6 +37,8 @@ const Book: React.FC<CombinedProps> = ({ render, ...props }) => {
 
   const handleActiveBook = () => {
     dispatch(fetchAddBookActive(props.uniq_key))
+    dispatch(setCurrentLocation(location.pathname))
+    navigate(`/book/${props.uniq_key}`)
   }
   return (
     <>

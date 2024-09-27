@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useEffect } from 'react'
 import { BookCard } from '../book-card/book-card'
 import * as styles from './book-list.module.css'
 import Loader from '../loader/loader'
@@ -11,6 +11,7 @@ import {
 } from '../../utils/constants/constants'
 import { useBookList } from '../../utils/hooks/use-book-list'
 import { BookPropsInit } from '../../utils/interfaces/interfaces'
+import { ActiveBook } from '../active-book/active-book'
 // TODO вынести в отдельную директорию с утилитами
 
 const BookList: React.FC = () => {
@@ -18,6 +19,7 @@ const BookList: React.FC = () => {
   const authorFilter = useSelector(selectAuthorFilter)
   const yearFilter = useSelector(selectYearFilter)
   const { books, loading, error } = useBookList(bookFilter)
+
   const filteredBookList = useMemo(() => {
     return books?.filter((book: BookPropsInit) => {
       const matchesAuthor = authorFilter
@@ -75,6 +77,7 @@ const BookList: React.FC = () => {
             })}
         </div>
       )}
+      <ActiveBook />
     </>
   )
 }

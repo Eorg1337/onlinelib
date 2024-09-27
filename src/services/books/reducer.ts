@@ -4,6 +4,7 @@ import { BookProps, BookPropsInit } from '../../utils/interfaces/interfaces'
 interface InitialState {
   books: BookPropsInit[]
   activeBook: string
+  currentLocation: string
   loading: boolean
   error: string
 }
@@ -11,6 +12,7 @@ interface InitialState {
 const initialState: InitialState = {
   books: [],
   activeBook: '',
+  currentLocation: '',
   loading: false,
   error: ''
 }
@@ -36,6 +38,9 @@ const bookSlice = createSlice({
     },
     fetchDelBookActive(state) {
       state.activeBook = ''
+    },
+    setCurrentLocation(state, action) {
+      state.currentLocation = action.payload
     }
   }
 })
@@ -45,6 +50,7 @@ export const {
   fetchBooksSuccess,
   fetchBooksFailure,
   fetchAddBookActive,
-  fetchDelBookActive
+  fetchDelBookActive,
+  setCurrentLocation
 } = bookSlice.actions
 export default bookSlice.reducer

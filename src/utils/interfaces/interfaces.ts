@@ -46,3 +46,7 @@ export interface FilterProps {
   name: string
   placeholder: string
 }
+
+export interface ModalProps {
+  onClose: () => void
+}

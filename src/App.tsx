@@ -12,18 +12,21 @@ import {
   NOT_FOUND_PATH,
   BOOK_DETAILS
 } from './utils/constants/constants'
-import { BookPage } from './pages/book'
+import { useSelector } from './services/store'
 function App() {
+  const curLocation = useSelector((state) => state.bookSlice.currentLocation)
+  const curPage = curLocation === '/' ? <MainPage /> : <FavoritePage />
+
   return (
     <>
       <Header />
       <Routes>
         // TODO вынести строки в константы - complete
         <Route path={MAIN_PATH} element={<MainPage />} />
+        <Route path={BOOK_DETAILS} element={curPage} />
         <Route path={FAV_PATH} element={<FavoritePage />} />
         <Route path={NOT_FOUND_PATH} element={<NotFoundPage />} />
         <Route path={BUSKET_PATH} element={<BusketPage />} />
-        <Route path={BOOK_DETAILS} element={<BookPage />} />
       </Routes>
     </>
   )

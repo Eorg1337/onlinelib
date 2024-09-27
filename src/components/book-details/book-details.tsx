@@ -15,22 +15,28 @@ export const BookDetails: React.FC = () => {
   return (
     <>
       {activeBook && (
-        <div className='modal_container'>
+        <div className={styles.details_container}>
           <img
+            className={styles.cover}
             src={
               activeBook.cover_edition_key
                 ? `https://covers.openlibrary.org/b/olid/${activeBook.cover_edition_key}-M.jpg`
                 : noImage
             }
           />
-          <h2></h2>
-          <p>
+          <h2>{activeBook.title}</h2>
+          <p className={styles.author}>
             {activeBook.author_name?.[0] ||
               activeBook.authors?.[0].name ||
               'Unknown'}
           </p>
-          <p>{activeBook.first_publish_year}</p>
-          <h3 className='desc'>Какое-то описание</h3>
+          <p className={styles.year}>{activeBook.first_publish_year}</p>
+          <div className={styles.desc}>
+            <h3>
+              Какое-то описание...
+              sdfjsdflskdjflsdkjflskdjflsdfjlsdkfjlskdfjslkfjslkdfjslkfjslkdfjlskdfjlk
+            </h3>
+          </div>
         </div>
       )}
     </>

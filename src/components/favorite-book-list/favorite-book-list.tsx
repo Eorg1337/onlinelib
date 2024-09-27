@@ -4,6 +4,7 @@ import { useSelector } from '../../services/store'
 import * as styles from './favorite-book-list.module.css'
 import { selectFavorites } from '../../utils/constants/constants'
 import { BookProps } from '../../utils/interfaces/interfaces'
+import { ActiveBook } from '../active-book/active-book'
 const FavoriteBookList = () => {
   const favoriteBooks = useSelector(selectFavorites)
   return (
@@ -27,6 +28,7 @@ const FavoriteBookList = () => {
           />
         )
       })}
+      <ActiveBook />
     </div>
   )
 }
