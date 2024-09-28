@@ -5,14 +5,17 @@ import { FavoritePage } from './pages/favorite'
 import { Header } from './components/header/header'
 import { NotFoundPage } from './pages/not-found'
 import { BusketPage } from './pages/bukset'
+import { CustomBooksPage } from './pages/custom-books'
 import {
   MAIN_PATH,
   FAV_PATH,
   BUSKET_PATH,
   NOT_FOUND_PATH,
-  BOOK_DETAILS
+  BOOK_DETAILS_PATH,
+  CUSTOM_BOOKS_PATH
 } from './utils/constants/constants'
 import { useSelector } from './services/store'
+
 function App() {
   const curLocation = useSelector((state) => state.bookSlice.currentLocation)
   const curPage = curLocation === '/' ? <MainPage /> : <FavoritePage />
@@ -23,10 +26,11 @@ function App() {
       <Routes>
         // TODO вынести строки в константы - complete
         <Route path={MAIN_PATH} element={<MainPage />} />
-        <Route path={BOOK_DETAILS} element={curPage} />
+        <Route path={BOOK_DETAILS_PATH} element={curPage} />
         <Route path={FAV_PATH} element={<FavoritePage />} />
         <Route path={NOT_FOUND_PATH} element={<NotFoundPage />} />
         <Route path={BUSKET_PATH} element={<BusketPage />} />
+        <Route path={CUSTOM_BOOKS_PATH} element={<CustomBooksPage />} />
       </Routes>
     </>
   )

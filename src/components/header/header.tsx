@@ -7,6 +7,7 @@ import { useSelector } from '../../services/store'
 export const Header = () => {
   const [isFavoriteOpen, setIsFavoriteOpen] = useState(false)
   const [isBusketOpen, setIsBusketOpen] = useState(false)
+  const [isCustomBooksOpen, setIsCustomBooksOpen] = useState(false)
   const navigate = useNavigate()
   const location = useLocation()
   const busketCount = useSelector(
@@ -21,8 +22,38 @@ export const Header = () => {
     if (path === '/busket' || location.pathname === '/busket') {
       setIsBusketOpen((prevState) => !prevState)
     }
+    if (path === '/custom_books' || location.pathname === '/custom_books') {
+      setIsCustomBooksOpen((prevState) => !prevState)
+    }
     navigate(path)
   }
+
+  /*const handleAddCustomBook = async () => {
+    const bookData = {
+      title: '1984',
+      author: 'George Orwell',
+      year: 1949
+    }
+
+    try {
+      const response = await fetch('http://localhost:3000/books', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(bookData)
+      })
+
+      if (response.ok) {
+        const result = await response.json()
+        console.log('Book added:', result)
+      } else {
+        console.error('Error adding book:', response.statusText)
+      }
+    } catch (error) {
+      console.error('Error:', error)
+    }
+  }*/
 
   return (
     <header>
@@ -40,6 +71,12 @@ export const Header = () => {
         >
           <span className={styles.busket_count}>{busketCount}</span>
         </MyButton>
+        <MyButton
+          text={!isCustomBooksOpen ? 'Мои книги' : 'Главная'}
+          onClick={() =>
+            handleClickedBtn(isCustomBooksOpen ? '/' : '/custom_books')
+          }
+        />
       </div>
     </header>
   )

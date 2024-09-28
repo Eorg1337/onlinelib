@@ -24,3 +24,24 @@
 .small_btn:hover {
   background-color: rgb(245, 100, 100);
 }
+
+.add_book_btn,
+.search_btn {
+  display: flex;
+  background: none;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+  height: 140px;
+  color: rgb(100, 96, 96);
+  border: 2px solid rgb(100, 96, 96);
+  border-radius: 20px;
+  font-size: 36px;
+  margin: 15px;
+}
+
+.add_book_btn:hover,
+.search_btn:hover {
+  background-color: rgb(82, 78, 78);
+}
