@@ -50,3 +50,15 @@ export interface FilterProps {
 export interface ModalProps {
   onClose: () => void
 }
+
+export interface MyInputProps {
+  type: string
+  className?: string
+  placeholder: string
+  onChange?: () => void
+}
+
+export interface MyFormProps {
+  action: string
+  children: JSX.Element[]
+}

@@ -5,6 +5,8 @@ import { useSelector, useDispatch } from '../../../../services/store'
 import { setAddCustomBook } from '../../../../services/custom-books/reducer'
 import { MyButton } from '../../../my-button/my-button'
 import * as styles from './add-custom-books-form.module.css'
+import { MyInput } from '../../../my-input/my-input'
+import { MyForm } from '../../../my-form/my-form'
 export const AddCustomBooksForm: React.FC = () => {
   const dispatch = useDispatch()
   const isAddCustomBook = useSelector(
@@ -20,17 +22,15 @@ export const AddCustomBooksForm: React.FC = () => {
     <>
       {isAddCustomBook && (
         <MyModal onClose={handleCloseModal}>
-          <div className={styles.add_form}>
-            <form>
-              <input type='text' placeholder='Ваш никнейм' />
-              <input type='text' placeholder='Название вашей книги' />
-              <input type='text' placeholder='Автор' />
-              <input type='text' placeholder='Год издания' />
-              <input type='text' placeholder='Описание' />
-              <input type='file' placeholder='Изображение' />
-            </form>
+          <MyForm action={'Submit'}>
+            <MyInput type={'text'} placeholder={'Ваш никнейм'} />
+            <MyInput type={'text'} placeholder={'Название вашей книги'} />
+            <MyInput type={'text'} placeholder={'Автор'} />
+            <MyInput type={'text'} placeholder={'Год издания'} />
+            <MyInput type={'text'} placeholder={'Описание'} />
+            <MyInput type={'text'} placeholder={'Изображение'} />
             <MyButton text={'Добавить'} onClick={() => {}} />
-          </div>
+          </MyForm>
         </MyModal>
       )}
     </>

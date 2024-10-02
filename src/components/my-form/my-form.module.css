@@ -1,4 +1,4 @@
-.add_form {
+.my_form {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -6,7 +6,7 @@
   padding: 10px;
 }
 
-.add_form input {
+.my_form input {
   background: none;
   min-width: 450px;
   min-height: 25px;
@@ -18,7 +18,7 @@
   color: white;
 }
 
-input:hover,
-input:active {
+.my_form input:hover,
+.my_form input:active {
   border-color: rgb(57, 53, 53);
 }
